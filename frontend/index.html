@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171715"><title>VaultLock — Your private archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="login" class="login hidden"><div class="login-card"><a class="wordmark" href="#">VaultLock<span>®</span></a><div class="eyebrow">A PRIVATE DIGITAL ARCHIVE</div><h1>Your documents.<br><em>Locked down.</em></h1><p>Keep the important things close, and everything else private.</p><button id="google" class="button light">Continue with Google <span>↗</span></button><div id="loginMsg" class="message"></div><div class="login-foot">PRIVATE BY DESIGN <i></i> ACCESS BY INVITATION</div></div></main>
+  <main id="app" class="app hidden">
+    <header class="topbar"><a class="wordmark" href="#">VaultLock<span>®</span></a><nav><a href="#archive">Archive</a><a href="#profile">Account</a></nav><div class="user"><img id="avatar" alt=""><span id="email"></span><button id="logout" class="text-button">Sign out ↗</button></div><button id="menu" class="menu" aria-label="Toggle navigation">☰</button></header>
+    <section class="intro"><div><div class="eyebrow">PERSONAL ARCHIVE / 001</div><h1>Everything important,<br><em>in its place.</em></h1></div><div class="intro-note"><span class="stamp">ACCESS · AUTHENTICATED</span><p>A quiet place for the documents that make up your life. Held privately, opened only by you.</p></div></section>
+    <section class="stats"><div><span class="eyebrow">DOCUMENTS</span><strong id="total">—</strong></div><div><span class="eyebrow">STORAGE USED</span><strong id="storage">—</strong></div><div><span class="eyebrow">RECENT ADDITION</span><strong id="recent">—</strong></div></section>
+    <section id="archive" class="archive"><aside class="sidebar"><div class="eyebrow">COLLECTIONS</div><div id="folders" class="folders"></div><div class="side-rule"></div><div class="eyebrow">YOUR ACCOUNT</div><div id="profile" class="profile"><strong id="profileName">—</strong><span id="profileEmail">—</span><button id="editProfile" class="text-button">Edit profile ↗</button></div><p class="security-note">PRIVATE STORAGE<br>Links expire after 60 seconds. Visible watermarks discourage sharing; browser screenshots cannot be prevented.</p></aside>
+      <section class="collection"><div class="collection-head"><div><div class="eyebrow">THE COLLECTION</div><h2 id="folderTitle">All documents</h2></div><button id="newUpload" class="button orange">Add a document <span>＋</span></button></div>
+        <div class="filters"><input id="search" type="search" placeholder="Search the archive…" aria-label="Search documents"><select id="categoryFilter"><option value="">All categories</option></select><select id="typeFilter"><option value="">All file types</option></select><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name A–Z</option></select></div>
+        <div id="docs" class="docs"></div>
+      </section>
+    </section><footer><span>VAULTLOCK · PRIVATE DIGITAL ARCHIVE</span><span>YOUR FILES. YOURS ALONE.</span></footer>
+  </main>
+  <dialog id="uploadDialog"><form id="uploadForm"><div class="dialog-head"><div><div class="eyebrow">NEW ARCHIVE ITEM</div><h2>Store a document</h2></div><button type="button" class="close" data-close>×</button></div><label>FILE · PDF, PNG, JPG OR DOCX · MAX 25 MB<input id="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.docx" required></label><label>FOLDER<select id="uploadFolder"></select></label><label>CATEGORY<input id="category" maxlength="50" value="General" required></label><label>LABEL<input id="label" maxlength="100" placeholder="Passport, rental agreement…"></label><label>PRIVATE NOTES<textarea id="notes" maxlength="2000" rows="3"></textarea></label><button class="button orange" type="submit">Store securely ↗</button><div id="uploadMsg" class="message"></div></form></dialog>
+  <dialog id="profileDialog"><form id="profileForm"><div class="dialog-head"><div><div class="eyebrow">ACCOUNT DETAILS</div><h2>Your profile</h2></div><button type="button" class="close" data-close>×</button></div><label>NAME<input id="nameInput" maxlength="120"></label><label>PHONE<input id="phoneInput" maxlength="30" type="tel"></label><button class="button orange">Save profile ↗</button><div id="profileMsg" class="message"></div></form></dialog>
+  <dialog id="viewerDialog" class="viewer"><div class="viewer-head"><div><div class="eyebrow">PRIVATE VIEW · TEMPORARY LINK</div><strong id="viewerName"></strong></div><button type="button" class="close" data-close>Close ×</button></div><div class="viewer-frame"><div id="watermark" class="watermark"></div><div id="viewerContent"></div></div><p class="viewer-note">Confidential · for your private use · Screenshot deterrence only; screen capture cannot be prevented.</p></dialog>
+  <script src="config.js"></script><script type="module" src="app.js"></script>
+</body></html>
